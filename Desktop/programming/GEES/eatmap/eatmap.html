@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            height: calc(100% - 102px);
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    </head>
+
+    <body>
+        <h1>EATマップ</h1>
+        <div id="map"></div>
+
+
+        <script>var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 10,
+                center: new google.maps.LatLng(35.5555, 139.555555),
+                mayTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            var weatherMapType = new google.maps.ImageMapType({
+                getTileUrl: function (coord, zoom) {
+                    return "https://tile.openweathermap.org/map/clouds_new/" +
+                        zoom + "/" + coord.x + "/" + coord.y + ".png?appid=xxxxxxxx";
+                },
+                tileSize: new google.maps.Size(256, 256),
+                maxZoom: 9,  //表示する最大のズーム値
+                minZoom: 0,  //表示する最小のズーム値
+                name: 'clouds_new'
+            });
+
+            map.overlayMapTypes.insertAt(0, weatherMapType);
+
+            map.overlayMapTypes.clear();
+
+
+        </script>
+
+    </body>
+
+</html>
