@@ -1,3 +1,2 @@
-# yasumoriossuume
-# yasumoriosusume03
-# yakinikukentei02
+# イートマップ→ほぼ触れなかった
+# JavaScript最後ということで子供と遊べるオセロゲームを作った
